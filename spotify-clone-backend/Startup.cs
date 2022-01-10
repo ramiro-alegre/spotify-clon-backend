@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using spotify_clone_backend.Models;
+using spotify_clone_backend.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,8 @@ namespace spotify_clone_backend
             services.AddDbContext<SpotifyContext>(opt =>
               opt.UseSqlServer(Configuration.GetConnectionString("SpotifyDataBase"),
                o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
+
+            services.AddScoped<ITrackRepository, TrackRepository>();
 
         }
 
