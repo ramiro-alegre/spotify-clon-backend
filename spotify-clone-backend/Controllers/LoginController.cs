@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Net.Mime;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -40,7 +41,14 @@ namespace spotify_clone_backend.Controllers
                 if(UserDatabase != null)
                 {
                     var token = Generate(UserDatabase);
-                    return Ok(token);
+                    //Implementación hecha porque el Front recibia un "HttpErrorResponse",
+                    //que aun no pude solucionar
+                    ResponseCode objResponseCode = new ResponseCode {
+                        Code= 200,
+                        Result = token
+                    };
+
+                    return StatusCode(200, objResponseCode);
                 }
                 return NotFound("User or password invalid");   
             }

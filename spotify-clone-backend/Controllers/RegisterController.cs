@@ -29,7 +29,7 @@ namespace spotify_clone_backend.Controllers
                 if(ValidateUser(user)){
                     user.Role = "User";
                     _repository.Save(user);
-                    return Ok();
+                    return StatusCode(201);
                 }else{
                     return StatusCode(403, "Email or password are Invalid");
                 }
