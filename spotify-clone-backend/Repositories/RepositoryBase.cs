@@ -4,6 +4,7 @@ using spotify_clone_backend.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using static spotify_clone_backend.Repositories.IRepositoryBase;
 
@@ -44,7 +45,10 @@ namespace spotify_clone_backend.Repositories
 
             return queryable.AsNoTrackingWithIdentityResolution();
         }
-
+        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
+        {
+            return this.RepositoryContext.Set<T>().Where(expression).AsNoTrackingWithIdentityResolution();
+        }
 
         public void Update(T entity)
         {

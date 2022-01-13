@@ -15,5 +15,6 @@ namespace spotify_clone_backend.Models
         public DbSet<Track> Tracks { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Duration> Durations { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

@@ -165,6 +165,20 @@ namespace spotify_clone_backend.Models
                 }
                 context.SaveChanges();
             }
+            if (!context.Users.Any())
+            {
+                var users = new User[]
+                {
+                    new User{Email= "test@test.com", Password= "12345678"},
+                    new User{Email= "ramiro@gmail.com", Password= "ramiro"}
+                };
+
+                foreach(User u in users)
+                {
+                    context.Users.Add(u);
+                }
+                context.SaveChanges();
+            }
         }
     }
 }
