@@ -8,6 +8,6 @@ namespace spotify_clone_backend.Repositories
 {
     public interface IUserRepository
     {
-        public User GetUserWithEmail(string email);
+        public User GetUserWithEmail(string email, string password);
     }
 }

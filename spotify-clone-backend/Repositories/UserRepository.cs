@@ -13,9 +13,9 @@ namespace spotify_clone_backend.Repositories
         {
 
         }
-        public User GetUserWithEmail(string email)
+        public User GetUserWithEmail(string email, string password)
         {
-            return FindByCondition(user => user.Email == email).FirstOrDefault();
+            return FindByCondition(user => user.Email == email && user.Password == password).FirstOrDefault();
         }
     }
 }

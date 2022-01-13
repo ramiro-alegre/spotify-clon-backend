@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using spotify_clone_backend.Models;
 using spotify_clone_backend.Repositories;
 using System;
@@ -12,6 +13,7 @@ namespace spotify_clone_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TracksController : ControllerBase
     {
         private ITrackRepository _repository;

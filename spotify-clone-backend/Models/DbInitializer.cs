@@ -169,8 +169,8 @@ namespace spotify_clone_backend.Models
             {
                 var users = new User[]
                 {
-                    new User{Email= "test@test.com", Password= "12345678"},
-                    new User{Email= "ramiro@gmail.com", Password= "ramiro"}
+                    new User{Email= "test@test.com", Password= "12345678", Role = "User"},
+                    new User{Email= "ramiro@gmail.com", Password= "ramiro", Role= "Administrator"}
                 };
 
                 foreach(User u in users)

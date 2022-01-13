@@ -133,3 +133,4 @@ C:\Users\alegr\source\repos\spotify-clone-backend\spotify-clone-backend\obj\Debu
 C:\Users\alegr\source\repos\spotify-clone-backend\spotify-clone-backend\obj\Debug\net5.0\ref\spotify-clone-backend.dll
 C:\Users\alegr\source\repos\spotify-clone-backend\spotify-clone-backend\obj\Debug\net5.0\spotify-clone-backend.pdb
 C:\Users\alegr\source\repos\spotify-clone-backend\spotify-clone-backend\obj\Debug\net5.0\spotify-clone-backend.genruntimeconfig.cache
+C:\Users\alegr\source\repos\spotify-clone-backend\spotify-clone-backend\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

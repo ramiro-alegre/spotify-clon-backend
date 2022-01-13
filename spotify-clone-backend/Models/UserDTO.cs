@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace spotify_clone_backend.Models
 {
-    public class User
+    public class UserDTO
     {
-        public long Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
     }
 }
