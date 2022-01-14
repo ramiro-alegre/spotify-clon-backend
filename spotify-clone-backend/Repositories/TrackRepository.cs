@@ -19,5 +19,19 @@ namespace spotify_clone_backend.Repositories
                                            .Include(track => track.Duration)
                                             ).ToList();
         }
+
+        public void UploadTrack(Track track){
+            Create(track);
+            SaveChanges();
+        }
+
+        public Track GetTrackWithId(long id){
+            return FindByCondition(track => track.Id == id).FirstOrDefault();
+        }
+
+        public void DeleteTrack(Track track){
+           Delete(track);
+           SaveChanges();
+        }
     }
 }

@@ -13,7 +13,6 @@ namespace spotify_clone_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class TracksController : ControllerBase
     {
         private ITrackRepository _repository;
@@ -24,14 +23,43 @@ namespace spotify_clone_backend.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
-            var tracks = _repository.GetAllTracks();    
+            try{
 
-            return Ok(tracks);
+                var tracks = _repository.GetAllTracks();   
+                return Ok(tracks);
+
+            }catch(Exception e){
+
+                return StatusCode(500, e.Message);
+
+            }      
         }
 
+        [HttpPut]
+        [Authorize(Roles ="Administrator")]
+        public IActionResult UploadTrack([FromBody] Track track){
+            try{
+                _repository.UploadTrack(track);
+                return Ok();
+            }catch(Exception e){
+                return StatusCode(500, e.Message);
+            }
+        }
 
+        [HttpDelete("/api/Tracks/{id}")]
+        [Authorize(Roles = "Administrator")]
+        public IActionResult DeleteTrack(long id){
+            try{
+                var track = _repository.GetTrackWithId(id);
+                _repository.DeleteTrack(track);
+                return Ok();
+            }catch(Exception e){
+                return StatusCode(500, e.Message);
+            }
+        }
         
     }
 }

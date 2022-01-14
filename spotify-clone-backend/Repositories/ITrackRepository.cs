@@ -9,5 +9,8 @@ namespace spotify_clone_backend.Repositories
     public interface ITrackRepository
     {
         IEnumerable<Track> GetAllTracks();
+        void UploadTrack(Track track);
+        Track GetTrackWithId(long id);
+        void DeleteTrack(Track track);
     }
 }

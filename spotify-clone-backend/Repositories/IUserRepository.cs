@@ -10,6 +10,8 @@ namespace spotify_clone_backend.Repositories
     {
         public User GetUserWithEmail(string email, string password);
         public void Save(User user);
+        public User GetUserWithId(long id);
+        public void DeleteUser(User user);
         public IEnumerable<User> GetAllUsers();
     }
 }

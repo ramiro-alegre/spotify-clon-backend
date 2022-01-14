@@ -26,5 +26,15 @@ namespace spotify_clone_backend.Repositories
         public IEnumerable<User> GetAllUsers(){
             return FindAll().ToList();
         }
+
+        public User GetUserWithId(long id){
+            return FindByCondition(user => user.Id == id).FirstOrDefault();
+        }
+
+        public void DeleteUser(User user){
+            Delete(user);
+            SaveChanges();
+        }
+
     }
 }

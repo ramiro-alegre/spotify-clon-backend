@@ -33,7 +33,7 @@ namespace spotify_clone_backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Utilizamos JwtBearer para tener autenticación con JWT
+            //Utilizamos JwtBearer para tener autenticaciï¿½n con JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -55,7 +55,7 @@ namespace spotify_clone_backend
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "spotify_clone_backend", Version = "v1" });
 
-                //Estas 2 opciones permiten la utilización del Json Web Token en Swagger
+                //Estas 2 opciones permiten la utilizaciï¿½n del Json Web Token en Swagger
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Scheme = "Bearer",

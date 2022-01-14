@@ -34,6 +34,21 @@ namespace spotify_clone_backend.Controllers
             }
         }
 
+        [HttpDelete("/api/Users/{id}")]
+        [Authorize(Roles = "Administrator")]
+        public IActionResult DeleteUser(long id){
+            try{
+                var user = _repository.GetUserWithId(id);
+                _repository.DeleteUser(user);
+                return Ok();
+            }catch(Exception e){
+                return StatusCode(500, e.Message);
+            }
+
+
+
+        }
+
         
     }
 }
