@@ -29,6 +29,10 @@ namespace spotify_clone_backend.Repositories
             this.RepositoryContext.Set<T>().Remove(entity);
         }
 
+        public void Remove(T entity){
+            this.RepositoryContext.Set<T>().Remove(entity);
+        }
+
         public IQueryable<T> FindAll()
         {
             return this.RepositoryContext.Set<T>().AsNoTracking();

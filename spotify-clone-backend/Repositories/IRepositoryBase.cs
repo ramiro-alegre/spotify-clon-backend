@@ -17,6 +17,7 @@ namespace spotify_clone_backend.Repositories
             void Create(T entity);
             void Update(T entity);
             void Delete(T entity);
+            void Remove(T entity);
             void SaveChanges();
         }
     }

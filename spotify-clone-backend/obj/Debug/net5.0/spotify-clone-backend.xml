@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>spotify-clone-backend</name>
+    </assembly>
+    <members>
+        <member name="M:spotify_clone_backend.Controllers.LoginController.Login(spotify_clone_backend.Models.UserDTO)">
+            <response code="200">If login correctly</response>
+            <response code="404">If user doesnt exist</response>
+            <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.RegisterController.Register(spotify_clone_backend.Models.User)">
+            <response code="201">If register a users correctly</response>
+            <response code="404">If user doesnt exist</response>
+            <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.TracksController.Get">
+            <summary>Get all tracks</summary>
+            <response code="200">If get all songs correctly</response>
+            <response code="401">If you not authenticate</response>
+            <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.TracksController.GetTrack(System.Int64)">
+            <summary>Get track with Id</summary>
+            <response code="200">If get all songs correctly</response>
+            <response code="401">If you not authenticate</response>
+            <response code="403">If you don't have authorization for use this method</response>
+            <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.TracksController.UploadTrack(spotify_clone_backend.Models.Track)">
+            <summary>Upload a track</summary>
+            <remarks>
+            Sample request:
+                 
+                 POST /Tracks 
+                 {
+                   "id": 0,
+                   "name": "Me estas tentando",
+                   "album": "Me estas tentando",
+                   <![CDATA["cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9o_E4nq6SmI0U8Rfv0IV1t_eaTmBLbqnGzg&usqp=CAU",]]>
+                   "artist": {
+                     "id": 0,
+                     <![CDATA["name": "Wisin & Yandel",]]>
+                     <![CDATA["nickname": "Wisin & Yandel",]]>
+                     "nationality": "PR"
+                   },
+                   "duration": {
+                     "id": 0,
+                     "start": 0,
+                     "end": 333
+                   },
+                   "url": "../assets/songs/track-8.mp3"
+                 }
+            </remarks>
+            <param name="track">Json of Track with Artist and Duration</param>
+            <response code="200">If the song has correct uploaded</response>
+            <response code="401">If you not authenticate</response>
+            <response code="403">If you don't have authorization for use this method</response>
+            <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.TracksController.DeleteTrack(System.Int64)">
+            <summary>
+            Delete a specific track.
+            </summary>
+            <param name="id">Specify Id for the song you want to delete</param>
+            <response code="200">If the song has correct deleted</response>
+            <response code="401">If you not authenticate</response>
+            <response code="403">If you don't have authorization for use this method</response>
+            <response code="404">If the song with the id you sent does not exist</response>
+            <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.UsersController.Users">
+            <summary>Get all users</summary>
+             <response code="200">If get all users correctly</response>
+             <response code="401">If you not authenticate</response>
+             <response code="403">If you don't have authorization for use this method</response>
+             <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.UsersController.GetUser(System.Int64)">
+            <summary>Get a specific user</summary>
+             <response code="200">If get a users correctly</response>
+             <response code="401">If you not authenticate</response>
+             <response code="403">If you don't have authorization for use this method</response>
+             <response code="404">If user doesnt exist</response>
+             <response code="500">If the server has a problem</response>
+        </member>
+        <member name="M:spotify_clone_backend.Controllers.UsersController.DeleteUser(System.Int64)">
+            <summary>Get user with id</summary>
+             <response code="200">If get a user correctly</response>
+             <response code="401">If you not authenticate</response>
+             <response code="403">If you don't have authorization for use this method</response>
+             <response code="404">If user doesnt exist</response>
+             <response code="500">If the server has a problem</response>
+        </member>
+    </members>
+</doc>

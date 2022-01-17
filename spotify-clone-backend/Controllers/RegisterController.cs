@@ -22,16 +22,18 @@ namespace spotify_clone_backend.Controllers
         {
             _repository = repository;
         }
+        /// <response code="201">If register a users correctly</response>
+        /// <response code="404">If user doesnt exist</response>
+        /// <response code="500">If the server has a problem</response>
         [AllowAnonymous]
-        [HttpPut]
+        [HttpPost]
         public IActionResult Register(User user){
             try{
                 if(ValidateUser(user)){
-                    user.Role = "User";
                     _repository.Save(user);
                     return StatusCode(201);
                 }else{
-                    return StatusCode(403, "Email or password are Invalid");
+                    return NotFound("Email or password are Invalid");
                 }
             }catch(Exception e){
                 return StatusCode(500, e.Message);

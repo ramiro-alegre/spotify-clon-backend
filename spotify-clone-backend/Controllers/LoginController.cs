@@ -28,7 +28,9 @@ namespace spotify_clone_backend.Controllers
             _repository = repository;
             _config = config;
         }
-
+        /// <response code="200">If login correctly</response>
+        /// <response code="404">If user doesnt exist</response>
+        /// <response code="500">If the server has a problem</response>
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Login([FromBody] UserDTO user)

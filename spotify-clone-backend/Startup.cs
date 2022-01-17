@@ -17,6 +17,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 
 namespace spotify_clone_backend
 {
@@ -54,6 +56,13 @@ namespace spotify_clone_backend
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "spotify_clone_backend", Version = "v1" });
+
+                //Las siguientes 2 lineas son para crear la documentación en XML
+                //using System.IO; para utilizar "Path.Combine()"
+                //using System.Reflection; para utilizar "Aseembly"
+                //Ver ejemplo de este XML en "TracksController HttpDelete"
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
                 //Estas 2 opciones permiten la utilizaci�n del Json Web Token en Swagger
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

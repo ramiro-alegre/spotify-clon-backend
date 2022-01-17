@@ -26,11 +26,14 @@ namespace spotify_clone_backend.Repositories
         }
 
         public Track GetTrackWithId(long id){
-            return FindByCondition(track => track.Id == id).FirstOrDefault();
+            return FindByCondition(track => track.Id == id)
+                   .Include(track => track.Artist)
+                   .Include(track => track.Duration)
+                   .FirstOrDefault();
         }
 
         public void DeleteTrack(Track track){
-           Delete(track);
+           Remove(track);
            SaveChanges();
         }
     }
