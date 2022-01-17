@@ -1,4 +1,4 @@
-## Backend of "Spotify-clon"(watch in my Github)
+# Backend of "Spotify-clon"(watch in my Github)
 
 ## Nuget package
 1- Microsoft.EntityFrameworkCore 5.0.13 <br>
@@ -10,12 +10,14 @@
 7- System.IdentityModel.Tokens.Jwt 6.15.5 <br>
 8- Swashbuckle.AspNetCore 5.6.3 (for Swagger documentation) 
 
+## Warning
+
 This API use JWT, and is documentated with swagger. If u need use a Http method, the Api need a JWT 
 
 ## Data example 
 
 ### Data for "Track"
-**{ <br>
+{ <br>
   "id": 0, <br>
   "name": "Me estas tentando", <br>
   "album": "Me estas tentando", <br>
@@ -33,4 +35,4 @@ This API use JWT, and is documentated with swagger. If u need use a Http method,
   }, <br> 
   "url": "../assets/songs/track-8.mp3" <br>
 }<br>
- **
+ 
